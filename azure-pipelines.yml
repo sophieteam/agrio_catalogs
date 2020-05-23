@@ -1,0 +1,31 @@
+name: $(Build.BuildId)
+
+trigger:
+  - master
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  ##########################################################
+  # Configure npm
+  ##########################################################
+- task: NodeTool@0
+  inputs:
+    versionSpec: "13.x"
+
+- script: |
+    sudo npm i -g firebase-tools
+  displayName: "install firebase tools globaly"
+
+- script: |
+    node index.js
+  displayName: "generate files"
+
+- script: |
+    firebase deploy \
+    --only hosting  \
+    --project agriofinans-catalogs  \
+    --message "$(Build.BuildNumber)" \
+    --token $(agriofinans-catalogs-webapi-key)
+  displayName: "deploy to firebase "
