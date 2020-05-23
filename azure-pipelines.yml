@@ -31,5 +31,5 @@ steps:
     --only hosting  \
     --project agriofinans-catalogs  \
     --message "$(Build.BuildNumber)" \
-    --token $(AgriofinansCatalogsWebapiKey)
+    --token AIzaSyC5Pa0JmWp-PNYPzBRpMvq1ot6DaSaXghM
   displayName: "deploy to firebase "
