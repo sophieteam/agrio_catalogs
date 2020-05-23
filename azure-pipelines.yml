@@ -3,6 +3,10 @@ name: $(Build.BuildId)
 trigger:
   - master
 
+variables: 
+- group: FirebaseTokens
+
+
 pool:
   vmImage: "ubuntu-latest"
 
@@ -27,5 +31,5 @@ steps:
     --only hosting  \
     --project agriofinans-catalogs  \
     --message "$(Build.BuildNumber)" \
-    --token $(FirebaseTokens.AgriofinansCatalogsWebapiKey)
+    --token $(AgriofinansCatalogsWebapiKey)
   displayName: "deploy to firebase "
