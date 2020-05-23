@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const output = './public';
 
-deleteFolderRecursive(`${output}`);
+deleteFolderRecursive(`${output}/*`);
 
 createCatalog('company_categories');
 createCatalog('document_types');
