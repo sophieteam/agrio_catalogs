@@ -8,12 +8,15 @@
     ],
     "headers": [
       {
-        // Specifies a CORS header for all font files
-        "source": "**",
+        "source": "**/*",
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
             "value": "*"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
           }
         ]
       }
