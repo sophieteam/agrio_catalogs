@@ -1,0 +1,20 @@
+{
+  "name": "catalogs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "cname": "echo catalogs.agriofinans.com  > ./public/CNAME"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophietech/agrio_catalogs.git"
+  },
+  "author": "Gurol Gurkan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sophietech/agrio_catalogs/issues"
+  },
+  "homepage": "https://github.com/sophietech/agrio_catalogs#readme"
+}
