@@ -1,16 +1,16 @@
 [
   {
-    "id": "00000000-0000-0000-0000-000000000001",
+    "id": "1",
     "customer_type": null,
     "name": "Nüfus Cüzdanı"
   },
   {
-    "id": "00000000-0000-0000-0000-000000000002",
+    "id": "2",
     "customer_type": null,
     "name": "Tapu"
   },
   {
-    "id": "00000000-0000-0000-0000-000000000003",
+    "id": "3",
     "customer_type": null,
     "name": "İkametgah Bildirgesi"
   }

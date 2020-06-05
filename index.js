@@ -52,46 +52,46 @@ function generateLocationCatalogs() {
     });
     fs.writeFileSync(`${cityFolder}/tax_offices/index.html`, `[${tax_offices}]`);
 
-    createFolderRecursive(`${cityFolder}/towns`);
-    const towns = [];
-    townsData.filter(t => t.city_id == cityItem.id).forEach(async (townItem) => {
-      const townStr = JSON.stringify({ id: townItem.id, name: townItem.name, city_id: townItem.city_id });
-      towns.push(townStr);
-      const townFolder = `${cityFolder}/towns/${townItem.id}`;
-      createFolderRecursive(townFolder);
-      fs.writeFileSync(`${townFolder}/index.html`, townStr);
+    createFolderRecursive(`${cityFolder}/districts`);
+    const districts = [];
+    districtsData.filter(t => t.city_id == cityItem.id).forEach(async (districtItem) => {
+      const districtStr = JSON.stringify({ id: districtItem.id, name: districtItem.name, city_id: districtItem.city_id });
+      districts.push(districtStr);
+      const districtFolder = `${cityFolder}/districts/${districtItem.id}`;
+      createFolderRecursive(districtFolder);
+      fs.writeFileSync(`${districtFolder}/index.html`, districtStr);
 
 
 
-      createFolderRecursive(`${townFolder}/districts`);
-      const districts = [];
-      districtsData.filter(t => t.town_id == townItem.id).forEach(async (districtItem) => {
-        const districtStr = JSON.stringify({ id: districtItem.id, name: districtItem.name, town_id: districtItem.town_id });
-        districts.push(districtStr);
-        const districtFolder = `${townFolder}/districts/${districtItem.id}`;
-        createFolderRecursive(districtFolder);
-        fs.writeFileSync(`${districtFolder}/index.html`, districtStr);
+      // createFolderRecursive(`${townFolder}/districts`);
+      // const districts = [];
+      // districtsData.filter(t => t.town_id == townItem.id).forEach(async (districtItem) => {
+      //   const districtStr = JSON.stringify({ id: districtItem.id, name: districtItem.name, town_id: districtItem.town_id });
+      //   districts.push(districtStr);
+      //   const districtFolder = `${townFolder}/districts/${districtItem.id}`;
+      //   createFolderRecursive(districtFolder);
+      //   fs.writeFileSync(`${districtFolder}/index.html`, districtStr);
 
-        createFolderRecursive(`${districtFolder}/neighborhoods`);
-
-
-        const neighborhoods = [];
-        neighborhoodsData.filter(t => t.district_id == districtItem.id).forEach(async (neighborhoodItem) => {
-          const neighborhoodStr = JSON.stringify({ id: neighborhoodItem.id, name: neighborhoodItem.name, postal_code: neighborhoodItem.postal_code, district_id: neighborhoodItem.district_id });
-          neighborhoods.push(neighborhoodStr);
-          const neighborhoodFolder = `${districtFolder}/neighborhoods/${neighborhoodItem.id}`;
-          createFolderRecursive(neighborhoodFolder);
-          fs.writeFileSync(`${neighborhoodFolder}/index.html`, neighborhoodStr);
-        });
-        fs.writeFileSync(`${districtFolder}/neighborhoods/index.html`, `[${neighborhoods}]`);
+      //   createFolderRecursive(`${districtFolder}/neighborhoods`);
 
 
-      });
-      fs.writeFileSync(`${townFolder}/districts/index.html`, `[${districts}]`);
+      //   const neighborhoods = [];
+      //   neighborhoodsData.filter(t => t.district_id == districtItem.id).forEach(async (neighborhoodItem) => {
+      //     const neighborhoodStr = JSON.stringify({ id: neighborhoodItem.id, name: neighborhoodItem.name, postal_code: neighborhoodItem.postal_code, district_id: neighborhoodItem.district_id });
+      //     neighborhoods.push(neighborhoodStr);
+      //     const neighborhoodFolder = `${districtFolder}/neighborhoods/${neighborhoodItem.id}`;
+      //     createFolderRecursive(neighborhoodFolder);
+      //     fs.writeFileSync(`${neighborhoodFolder}/index.html`, neighborhoodStr);
+      //   });
+      //   fs.writeFileSync(`${districtFolder}/neighborhoods/index.html`, `[${neighborhoods}]`);
+
+
+      // });
+      // fs.writeFileSync(`${townFolder}/districts/index.html`, `[${districts}]`);
 
 
     });
-    fs.writeFileSync(`${cityFolder}/towns/index.html`, `[${towns}]`);
+    fs.writeFileSync(`${cityFolder}/districts/index.html`, `[${districts}]`);
 
   });
   fs.writeFileSync(`${output}/cities/index.html`, `[${cities}]`);
@@ -102,6 +102,7 @@ function createFolderRecursive(path) {
     fs.mkdirSync(path, { recursive: true })
   }
 }
+
 function deleteFolderRecursive(path) {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach(function (file, index) {
